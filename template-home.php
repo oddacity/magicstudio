@@ -15,7 +15,11 @@ get_header(); ?>
 <div id="template-home">
 	<div class="container">
 		<div class="row">
-			
+			<div class="col-lg-6 col-md-6 intro">
+				<h1 class="text-alignleft">
+					The best in design<br/>& entertainment
+				</h1>
+			</div>
 		</div>
 	</div>
 </div>
