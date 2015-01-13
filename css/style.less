@@ -840,7 +840,14 @@ object {
 	opacity: 0.5;
 }
 /*--------------------------------------------------------------
-14.0 Header / Footer
+14.0 General Styles
+--------------------------------------------------------------*/
+.site-content {
+	padding: 100px 0;
+	z-index: 10;
+}
+/*--------------------------------------------------------------
+15.0 Header / Footer
 --------------------------------------------------------------*/
 #masthead {
 	height: 100px;
@@ -880,10 +887,12 @@ object {
     height: 30px;
     margin: 5px 0;
 }
-#colophon {
-	background: rgba(35,35,35,0.5);
+.site-footer {
+	background: @fadegrey50;
 	min-height: 70px;
 	padding: 25px 0;
+	position: absolute;
+	width: 100%;
 }
 .sticky {
 	position: fixed;
@@ -891,7 +900,7 @@ object {
 	width: 100%;
 }
 /*--------------------------------------------------------------
-15.0 Homepage
+16.0 Homepage
 --------------------------------------------------------------*/
 #background {
 	background-size: cover !important;
@@ -900,5 +909,39 @@ object {
 	float: none;
 	height: auto;
 	min-height: 250px;
-	margin-top: 20%;
+}
+/*--------------------------------------------------------------
+17.0 Services
+--------------------------------------------------------------*/
+.service-section {
+	float: left;
+	position: relative;
+}
+.service-section h1 {
+	margin: 50px 15px;
+}
+.service-title {
+	min-height: 40px;
+	height: auto;
+	background: @fadegrey75;
+	color: @gold;
+	padding: 10px 20px;
+	font-family: @serif;
+	font-style: italic;
+}
+.service-summary {
+	background: @fadegrey50;
+	padding: 25px;
+	color: @white;
+	font-size: 14px;
+	font-family: @raleway;
+}
+/* temporary */
+#entertainment-services .service-title {
+	background: @fadegold;
+	color: @white;
+}
+
+#entertainment-services .service-summary {
+	background: rgba(255,255,255,0.1);
 }

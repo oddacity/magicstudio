@@ -142,42 +142,20 @@ function magicstudio_posttypes() {
 
 add_action( 'init', 'magicstudio_taxonomies' );
 function magicstudio_taxonomies() {
-	register_taxonomy( 'studio', array( 'magicstudio_services' ), array(
+	register_taxonomy( 'service-types', array( 'magicstudio_services' ), array(
 		'hierarchical' => true,
 		'labels' => array(
-			'name' => _x( 'Studio Services', 'taxonomy general name' ),
-			'singular_name' => _x( 'Studio Service', 'taxonomy singular name' ),
-			'search_items' => __( 'Search Studio Services' ),
-			'all_items' => __( 'All Studio Services' ),
-			'edit_item' => __( 'Edit Studio Service' ),
-			'update_item' => __( 'Update Studio Service' ),
-			'add_new_item' => __( 'New Studio Service' ),
-			'menu_name' => __( 'Studio Services' ),
+			'name' => _x( 'Service Types', 'taxonomy general name' ),
+			'singular_name' => _x( 'Service Type', 'taxonomy singular name' ),
+			'search_items' => __( 'Search Service Types' ),
+			'all_items' => __( 'All Service Types' ),
+			'edit_item' => __( 'Edit Service Type' ),
+			'update_item' => __( 'Update Service Type' ),
+			'add_new_item' => __( 'New Service Type' ),
+			'menu_name' => __( 'Service Types' ),
 		),
 		'rewrite' => array(
-			'slug' => 'studio',
-			'with_front' => false,
-			'hierarchical' => true,
-		),
-        'public'                     => true,
-        'show_ui'                    => true,
-        'show_admin_column'          => true,
-        'show_in_nav_menus'          => true,
-	));
-	register_taxonomy( 'entertainment', array( 'magicstudio_services' ), array(
-		'hierarchical' => true,
-		'labels' => array(
-			'name' => _x( 'Entertainment Services', 'taxonomy general name' ),
-			'singular_name' => _x( 'Entertainment Service', 'taxonomy singular name' ),
-			'search_items' => __( 'Search Entertainment Services' ),
-			'all_items' => __( 'All Entertainment Services' ),
-			'edit_item' => __( 'Edit Entertainment Service' ),
-			'update_item' => __( 'Update Entertainment Service' ),
-			'add_new_item' => __( 'New Entertainment Service' ),
-			'menu_name' => __( 'Entertainment Services' ),
-		),
-		'rewrite' => array(
-			'slug' => 'entertainment',
+			'slug' => 'service-types',
 			'with_front' => false,
 			'hierarchical' => true,
 		),
