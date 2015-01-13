@@ -6,15 +6,6 @@
  */
 get_header(); ?>
 
-<?php 
-	$args = array(
-		'post_type'        => 'magicstudio_services',
-		'post_status'      => 'publish',
-		'suppress_filters' => true 
-	);
-	$posts = get_posts( $args ); 
-?> 
-
 <?php if( has_post_thumbnail() ) {
 	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
 } ?>
@@ -23,16 +14,9 @@ get_header(); ?>
 
 <div id="template-services">
 	<div class="container">
-		<div class="row">
-			<?php foreach ( $posts as $post ) : setup_postdata( $post ); ?>
-				<div class="col-lg-4 col-md-4">
-					<header class="service-title">
-						<h2><?php the_title();?></h2>
-					</header>	
-				</div>
-			<?php endforeach; 
-			wp_reset_postdata();?>
-		</div>
+
+		<?php get_template_part('/template-modules/service-section');?>
+
 	</div>
 </div>
 
