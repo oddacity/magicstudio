@@ -112,6 +112,82 @@ function magicstudio_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'magicstudio_scripts' );
 
+add_action( 'init', 'magicstudio_posttypes' );
+function magicstudio_posttypes() {
+	register_post_type( 'magicstudio_services', array(
+		'labels' => array(
+			'name' => __( 'Services' ),
+			'singular_name' => __( 'Service' ),
+			'search_items' => __( 'Search Services' ),
+			'all_items' => __( 'All Services' ),
+			'edit_item' => __( 'Edit Service' ),
+			'update_item' => __( 'Update Service' ),
+			'add_new_item' => __( 'New Service' ),
+			'menu_name' => __( 'Services' ),
+		),
+		'supports' => array(
+			'title',
+			'custom-fields',
+			'thumbnail'
+		),
+		'rewrite' => array(
+			'slug' => 'services',
+			'with_front' => false,
+		),
+		'public' => true,
+		'has_archive' => false,
+        'show_in_nav_menus' => true,
+	) );
+}
+
+add_action( 'init', 'magicstudio_taxonomies' );
+function magicstudio_taxonomies() {
+	register_taxonomy( 'studio', array( 'magicstudio_services' ), array(
+		'hierarchical' => true,
+		'labels' => array(
+			'name' => _x( 'Studio Services', 'taxonomy general name' ),
+			'singular_name' => _x( 'Studio Service', 'taxonomy singular name' ),
+			'search_items' => __( 'Search Studio Services' ),
+			'all_items' => __( 'All Studio Services' ),
+			'edit_item' => __( 'Edit Studio Service' ),
+			'update_item' => __( 'Update Studio Service' ),
+			'add_new_item' => __( 'New Studio Service' ),
+			'menu_name' => __( 'Studio Services' ),
+		),
+		'rewrite' => array(
+			'slug' => 'studio',
+			'with_front' => false,
+			'hierarchical' => true,
+		),
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+	));
+	register_taxonomy( 'entertainment', array( 'magicstudio_services' ), array(
+		'hierarchical' => true,
+		'labels' => array(
+			'name' => _x( 'Entertainment Services', 'taxonomy general name' ),
+			'singular_name' => _x( 'Entertainment Service', 'taxonomy singular name' ),
+			'search_items' => __( 'Search Entertainment Services' ),
+			'all_items' => __( 'All Entertainment Services' ),
+			'edit_item' => __( 'Edit Entertainment Service' ),
+			'update_item' => __( 'Update Entertainment Service' ),
+			'add_new_item' => __( 'New Entertainment Service' ),
+			'menu_name' => __( 'Entertainment Services' ),
+		),
+		'rewrite' => array(
+			'slug' => 'entertainment',
+			'with_front' => false,
+			'hierarchical' => true,
+		),
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+	));
+}
+
 /**
  * Implement the Custom Header feature.
  */
