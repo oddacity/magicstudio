@@ -21,15 +21,18 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'magicstudio' ); ?></a>
 
-	<header id="masthead" class="site-header container" role="banner">
-		<div class="row">
-			<?php get_template_part('/template-modules/branding');?>
-			<?php get_template_part('/template-modules/nav');?>
-			<?php get_template_part('/template-modules/social');?>
-		</div>
-	</header><!-- #masthead -->
+	<div class="animsition">
 
-	<div id="content" class="site-content">
+		<div id="page" class="hfeed site">
+			<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'magicstudio' ); ?></a>
+
+			<header id="masthead" class="site-header container" role="banner">
+				<div class="row">
+					<?php get_template_part('/template-modules/branding');?>
+					<?php get_template_part('/template-modules/nav');?>
+					<?php get_template_part('/template-modules/social');?>
+				</div>
+			</header><!-- #masthead -->
+
+			<div id="content" class="site-content">

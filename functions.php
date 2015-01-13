@@ -100,6 +100,7 @@ add_action( 'widgets_init', 'magicstudio_widgets_init' );
  * Enqueue scripts and styles.
  */
 function magicstudio_scripts() {
+	wp_enqueue_style( 'magicstudio-animsition', get_template_directory_uri() . '/css/animsition.min.css' );
 	wp_enqueue_style( 'magicstudio-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
 	wp_enqueue_style( 'magicstudio-style', get_template_directory_uri() . '/style.min.css' );
 
