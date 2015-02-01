@@ -36,6 +36,18 @@ $(document).ready(function(){
 		overlayParentElement  :   'body'
 	});
 
+	$('.service .modal').each(function(){
+		var imgCount = 0;
+
+		$(this).find('.modal-img').each(function(){
+			imgCount++;
+		});
+
+		var imgCol = 12/imgCount;
+
+		$(this).find('.modal-img').addClass('col-md-'+imgCol);
+	});
+
 });
 
 $(window).resize(function(){
