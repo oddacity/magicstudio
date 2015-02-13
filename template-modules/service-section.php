@@ -7,6 +7,8 @@
 
 <div id="<?php echo $slug;?>" class="service-section">
 	<h1><?php echo $name;?></h1>
+	<h3 class="callout"><?php echo the_field('rates',$term);?></h3>
+	
 	<p><?php echo $description;?></p>
 	<?php 
 		$top = array(
@@ -31,8 +33,8 @@
 
 			<article class="service col-lg-3 col-md-3">
 				<header class="service-title">
-					<h2>
-						<a class="accordion-toggle" data-toggle="collapse" data-parent="#<?php echo $slug . '-' . $count;?>" href="#<?php echo $slug . '-' . $count;?>">
+					<h2 class="italic">
+						<a class="accordion-toggle service-toggle" data-toggle="collapse" data-parent="#<?php echo $slug . '-' . $count;?>" href="#<?php echo $slug . '-' . $count;?>">
 							<?php the_title();?>
 						</a>
 					</h2>
@@ -53,30 +55,30 @@
 				</footer>
 
 				<div class="modal fade" id="<?php echo $slug . '-modal-' . $count;?>" tabindex="-1" role="dialog" aria-labelledby="<?php echo $slug . '-modal-' . $count;?>" aria-hidden="true">
-				    <div class="container">
-				        <div class="modal-content">
-				        	<header class="modal-feature" style="background:url(<?php echo $thumb[0];?>) no-repeat center center;"></header>
-				            <div class="modal-content-inner">
-				            	<h1><?php echo the_title();?></h1>
-				            	<p><?php echo the_field('service_description');?></p>
-				            	
-				            	<?php 
-								$images = get_field('photo_gallery');
+			        <div class="modal-content">
+			        	<a href="#" class="modal-close"></a>
+			            <div class="modal-content-inner container">
+			            	<h1><?php echo the_title();?></h1>
+			            	<p><?php echo the_field('service_description');?></p>
+			            	
+			            	<?php 
+							$images = get_field('photo_gallery');
 
-								if( $images ): ?>
-							        <div class="modal-gallery">
-							        	<div class="row">
-									        <?php foreach( $images as $image ): ?>
-									        	<div class="modal-img" style="background:url(<?php echo $image['sizes']['medium'];?>);"></div>
-									        <?php endforeach; ?>
-									    </div>
+							if( $images ): ?>
+						        <div class="modal-gallery">
+						        	<div class="row">
+								        <?php foreach( $images as $image ): ?>
+								        	<div class="modal-img col-md-2">
+								        		<img class="lazy" data-original="<?php echo $image['sizes']['medium'];?>" src="<?php echo $image['sizes']['medium'];?>"/>
+								        	</div>
+								        <?php endforeach; ?>
 								    </div>
-								<?php endif; ?>
+							    </div>
+							<?php endif; ?>
 
-								<?php get_template_part('template-modules/modal-cta');?>
-				            </div>	
-				    	</div>
-					</div>
+							<?php get_template_part('template-modules/modal-cta');?>
+			            </div>	
+			    	</div>
 				</div>
 			</article>
 
@@ -109,7 +111,7 @@
 
 			<article class="service col-lg-3 col-md-3">
 				<header class="service-title">
-					<h2>
+					<h2 class="italic">
 						<a class="accordion-toggle" data-toggle="collapse" data-parent="#<?php echo $slug . '-' . $count;?>" href="#<?php echo $slug . '-' . $count;?>">
 							<?php the_title();?>
 						</a>
@@ -131,30 +133,30 @@
 				</div>	
 
 				<div class="modal fade" id="<?php echo $slug . '-modal-' . $count;?>" tabindex="-1" role="dialog" aria-labelledby="<?php echo $slug . '-modal-' . $count;?>" aria-hidden="true">
-				    <div class="container">
-				        <div class="modal-content">
-				        	<header class="modal-feature" style="background:url(<?php echo $thumb[0];?>) no-repeat center center;"></header>
-				            <div class="modal-content-inner">
-				            	<h1><?php echo the_title();?></h1>
-				            	<p><?php echo the_field('service_description');?></p>
+			        <div class="modal-content">
+			        	<a href="#" class="modal-close"></a>
+			            <div class="modal-content-inner container">
+			            	<h1><?php echo the_title();?></h1>
+			            	<p><?php echo the_field('service_description');?></p>
+			            	
+			            	<?php 
+							$images = get_field('photo_gallery');
 
-				            	<?php 
-								$images = get_field('photo_gallery');
-
-								if( $images ): ?>
-									<div class="modal-gallery">
-							        	<div class="row">
-									        <?php foreach( $images as $image ): ?>
-									        	<div class="modal-img" style="background:url(<?php echo $image['sizes']['medium'];?>);"></div>
-									        <?php endforeach; ?>
-									    </div>
+							if( $images ): ?>
+						        <div class="modal-gallery">
+						        	<div class="row">
+								        <?php foreach( $images as $image ): ?>
+								        	<div class="modal-img col-md-2">
+								        		<img class="lazy" data-original="<?php echo $image['sizes']['medium'];?>" src="<?php echo $image['sizes']['medium'];?>"/>
+								        	</div>
+								        <?php endforeach; ?>
 								    </div>
-								<?php endif; ?>
+							    </div>
+							<?php endif; ?>
 
-								<?php get_template_part('template-modules/modal-cta');?>
-				            </div>	
-				    	</div>
-					</div>
+							<?php get_template_part('template-modules/modal-cta');?>
+			            </div>	
+			    	</div>
 				</div>
 			</article>
 

@@ -7,7 +7,30 @@ function backgroundResize(){
 	});
 }
 
+function centerModal() {
+    $(this).css('display', 'block');
+
+    var dialog = $(this).find('.modal-content');
+    var offset = ($(window).height() - dialog.height()) / 2;
+  
+    dialog.css('margin-top', offset);
+}
+
+function radioStyles(wrapper) {
+	$(wrapper).find('input[type=radio]:checked').parent().addClass('checked');
+
+	$(wrapper).on('change',function(){
+		$(this).find('input[type=radio]').parent().removeClass('checked');
+		$(this).find('input[type=radio]:checked').parent().addClass('checked');
+	});
+}
+
 $(document).ready(function(){
+
+	$(".lazy").lazyload({
+	    effect : "fadeIn",
+	});
+
 	backgroundResize();
 
 	$('.main-navigation').find('a').addClass('animsition-link');
@@ -36,20 +59,32 @@ $(document).ready(function(){
 		overlayParentElement  :   'body'
 	});
 
-	$('.service .modal').each(function(){
-		var imgCount = 0;
-
-		$(this).find('.modal-img').each(function(){
-			imgCount++;
-		});
-
-		var imgCol = 12/imgCount;
-
-		$(this).find('.modal-img').addClass('col-md-'+imgCol);
+	// Close Modals
+	$('.modal-close').click(function(){
+		$(this).closest('.modal').attr('aria-hidden','true').hide();	
+		$('body').removeClass('modal-open');
+		$('.modal-backdrop').hide();
 	});
 
+	// Vertically Align Modals
+	$('.modal').on('show.bs.modal', centerModal);
+
+	// Ninja Forms 
+	radioStyles('.inquiry-radio-styles-wrap');
+	radioStyles('.budget-radio-styles-wrap');
+
+});
+
+$(window).load(function(){
+	// Resize Team Photos
+	$('.team-member').each(function(){
+		var itemH = $(this).find('.bio').outerHeight(true);
+		$(this).find('.photo').css('height',itemH);
+	});
 });
 
 $(window).resize(function(){
 	backgroundResize();
+	$('.modal:visible').each(centerModal);
 });
+

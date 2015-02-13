@@ -115,6 +115,30 @@ add_action( 'wp_enqueue_scripts', 'magicstudio_scripts' );
 
 add_action( 'init', 'magicstudio_posttypes' );
 function magicstudio_posttypes() {
+	register_post_type( 'magicstudio_team', array(
+		'labels' => array(
+			'name' => __( 'Team' ),
+			'singular_name' => __( 'Team' ),
+			'search_items' => __( 'Search Team Members' ),
+			'all_items' => __( 'All Team Members' ),
+			'edit_item' => __( 'Edit Team Member' ),
+			'update_item' => __( 'Update Team Member' ),
+			'add_new_item' => __( 'New Team Member' ),
+			'menu_name' => __( 'Team' ),
+		),
+		'supports' => array(
+			'title',
+			'custom-fields',
+			'thumbnail'
+		),
+		'rewrite' => array(
+			'slug' => 'team',
+			'with_front' => false,
+		),
+		'public' => true,
+		'has_archive' => false,
+        'show_in_nav_menus' => true,
+	) );
 	register_post_type( 'magicstudio_services', array(
 		'labels' => array(
 			'name' => __( 'Services' ),

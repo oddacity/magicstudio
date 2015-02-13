@@ -12,24 +12,37 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<?php if( has_post_thumbnail() ) {
+	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+} ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+<div id="background" class="fullscreen" style="background:url(<?php echo $thumb[0];?>) no-repeat center center;"></div>
 
-				<?php get_template_part( 'content', 'page' ); ?>
+	<div id="template-primary" class="content-area">
+		<main id="main" class="site-main container" role="main">
+			<div class="row">
 
-				<?php
-					// If comments are open or we have at least one comment, load up the comment template
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
-				?>
+				<h1><?php echo the_title();?></h1>
 
-			<?php endwhile; // end of the loop. ?>
-
+				<div class="inner col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<?php if(get_field('intro')) : ?>
+						<header class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<h2 class="text-aligncenter"><?php echo the_field('intro');?></h2>
+							</div>
+						</header>
+					<?php endif;?>
+					
+					<?php while ( have_posts() ) : the_post(); ?>
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<?php echo the_content();?>
+							</div>	
+						</div>	
+					<?php endwhile; // end of the loop. ?>
+				</div>	
+			</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
