@@ -18,7 +18,7 @@ get_header(); ?>
 
 			<h1><?php echo the_title();?></h1>
 
-			<div class="inner">
+			<div class="inner col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 				<?php 
 					$args = array(
 						'posts_per_page'   => -1,
@@ -32,19 +32,32 @@ get_header(); ?>
 				<?php foreach ( $posts as $post ) : setup_postdata( $post );
 
 					if( has_post_thumbnail() ) {
-						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
 					} ?>
 
 					<article class="team-member col-lg-12 col-md-12">
 						<div class="row">
-							<figure class="photo col-lg-2 col-md-2">
+							<figure class="photo col-lg-2 col-md-2 col-sm-4 col-xs-12">
 								<img class="lazy" data-original="<?php echo $thumb[0];?>" src="<?php echo $thumb[0];?>" alt="<?php echo the_title();?>"/>
 								<figcaption>
 									<h2 class="italic"><?php echo the_title();?></h2>
 								</figcaption>
 							</figure>
-							<div class="push col-lg-1 col-md-1"></div>
-							<div class="bio col-lg-9 col-md-9" id="<?php echo $post->ID;?>">
+							<figure class="mobile-photo col-lg-2 col-md-2 col-sm-4 col-xs-12">
+								<img class="lazy" data-original="<?php echo $thumb[0];?>" src="<?php echo $thumb[0];?>" alt="<?php echo the_title();?>"/>
+								<figcaption>
+									<div class="wrap">
+										<h2>
+											<?php echo the_title();?>
+											<span class="italic">
+												<?php echo the_field('title');?>
+											</span>
+										</h2>
+									</div>	
+								</figcaption>
+							</figure>
+							<div class="push col-lg-1 col-md-1 col-sm-1 hidden-xs"></div>
+							<div class="bio col-lg-9 col-md-9 col-sm-7 col-xs-12" id="<?php echo $post->ID;?>">
 								<header>
 									<h2><?php echo the_title();?></h2>
 									<h3><?php echo the_field('title');?></h3>

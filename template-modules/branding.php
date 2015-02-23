@@ -1,7 +1,8 @@
-<div class="site-branding col-md-2">
+<div class="site-branding col-md-2 col-sm-12">
 	<h1 class="site-title">
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<?php bloginfo( 'name' ); ?>
+			Magic Studio<br/>
+			Productions
 		</a>
 	</h1>
 </div><!-- .site-branding -->

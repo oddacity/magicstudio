@@ -17,7 +17,7 @@
 							<h3 class="alignleft">
 								232 Carruthers Avenue, Ottawa, ON, Canada / 613.795.3545
 							</h3>	
-							<a href="/contact" class="btn btn-light alignright">Email Us</a>
+							<a href="/contact" class="btn btn-light alignright">Contact Us</a>
 						</div>
 					</div>
 				</div><!-- .site-info -->

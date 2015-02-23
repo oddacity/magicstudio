@@ -1,4 +1,7 @@
 var windowH = $(window).height();
+var windowW = $(window).width();
+var masthead = $('#masthead').outerHeight();
+var footer = $('#colophon').outerHeight();
 
 function backgroundResize(){
 	$(".fullscreen").each(function(i){
@@ -7,13 +10,26 @@ function backgroundResize(){
 	});
 }
 
-function centerModal() {
-    $(this).css('display', 'block');
+function introText() {
+	var topH = windowH - (masthead + footer);
+	var introH = $('.intro').outerHeight();
+	var offset = topH - introH;
+
+	$('.intro').css({
+		'margin-top'	: offset/4,
+		'margin-bottom' : offset/4,
+	});
+}
+
+function openModal() {
+	$(this).css('display', 'block');
 
     var dialog = $(this).find('.modal-content');
     var offset = ($(window).height() - dialog.height()) / 2;
   
     dialog.css('margin-top', offset);
+
+    $('html').addClass('no-scroll');
 }
 
 function radioStyles(wrapper) {
@@ -32,6 +48,10 @@ $(document).ready(function(){
 	});
 
 	backgroundResize();
+	
+	if ($('body').hasClass('home')) {
+		introText();
+	}
 
 	$('.main-navigation').find('a').addClass('animsition-link');
   
@@ -61,30 +81,46 @@ $(document).ready(function(){
 
 	// Close Modals
 	$('.modal-close').click(function(){
-		$(this).closest('.modal').attr('aria-hidden','true').hide();	
-		$('body').removeClass('modal-open');
-		$('.modal-backdrop').hide();
+		$(this).closest('.modal').modal('hide');
 	});
 
 	// Vertically Align Modals
-	$('.modal').on('show.bs.modal', centerModal);
+	$('.modal').on('show.bs.modal', openModal);
+	$('.modal').on('hide.bs.modal', function(){
+		$('html').removeClass('no-scroll');
+		location.hash = '#/';
+	});
 
 	// Ninja Forms 
 	radioStyles('.inquiry-radio-styles-wrap');
 	radioStyles('.budget-radio-styles-wrap');
 
+	// Add URL Paramaters for Modals
+	$('.modal-trigger').click(function(){
+	    var hash = $(this).data('url');
+	    location.hash = hash;
+	});
+
+	// Open Modal Based on URL Paramaters
+	var param = document.URL.split('#')[1];
+	var current = $('.modal[data-url="' + param + '"]');
+	$(current).modal('show');
+
 });
 
 $(window).load(function(){
 	// Resize Team Photos
-	$('.team-member').each(function(){
-		var itemH = $(this).find('.bio').outerHeight(true);
-		$(this).find('.photo').css('height',itemH);
-	});
+	if (windowW >= 767) {
+		$('.team-member').each(function(){
+			var itemH = $(this).find('.bio').outerHeight(true);
+			$(this).find('.photo').css('height',itemH);
+		});
+	}
 });
 
 $(window).resize(function(){
 	backgroundResize();
-	$('.modal:visible').each(centerModal);
+	introText();
+	$('.modal:visible').each(openModal);
 });
 

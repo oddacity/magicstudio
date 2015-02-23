@@ -1,16 +1,16 @@
-<div class="site-social col-md-2">
+<div class="site-social col-md-2 hidden-sm hidden-xs">
 	<div class="row">
 		<div class="col-md-3 social">
-			<img src="<?php echo get_template_directory_uri();?>/img/facebook.png" alt="Magic Studio Productions Facebook"/>
+			<a href="http://www.facebook.com/MagicStudioProductions" target="_blank" class="facebook">Facebook</a>
 		</div>
 		<div class="col-md-3 social">
-			<img src="<?php echo get_template_directory_uri();?>/img/twitter.png" alt="Magic Studio Productions Twitter"/>
+			<a href="http://www.twitter.com/stevesmgkstudio" target="_blank" class="twitter">Twitter</a>
 		</div>
 		<div class="col-md-3 social">
-			<img src="<?php echo get_template_directory_uri();?>/img/linkedin.png" alt="Magic Studio Productions LinkedIn"/>
+			<a href="http://ca.linkedin.com/pub/steven-lafond/3b/560/419/en" target="_blank" class="linkedin">LinkedIn</a>
 		</div>
 		<div class="col-md-3 social">
-			<img src="<?php echo get_template_directory_uri();?>/img/youtube.png" alt="Magic Studio Productions YouTube"/>
+			<a href="http://www.youtube.com/StevesMgkStudio" target="_blank" class="youtube">YouTube</a>
 		</div>
 	</div>
 </div><!-- .site-social -->
