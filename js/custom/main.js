@@ -6,7 +6,7 @@ var footer = $('#colophon').outerHeight();
 function backgroundResize(){
 	$(".fullscreen").each(function(i){
 	    var path = $(this);
-	    path.css("height", windowH);
+	    path.css("height", windowH) + 100;
 	});
 }
 
