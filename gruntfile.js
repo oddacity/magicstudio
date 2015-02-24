@@ -36,6 +36,7 @@ module.exports = function(grunt) {
           'js/scripts.min.js': [
             'js/vendor/*.js',
             '!js/vendor/jquery-1.11.0.min.js',
+            '!js/vendor/polyfill.object-fit.core.js',
           ],
           'js/main.min.js': [
             'js/custom/*.js'
