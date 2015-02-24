@@ -44,7 +44,9 @@ get_header(); ?>
 								</figcaption>
 							</figure>
 							<figure class="mobile-photo col-lg-2 col-md-2 col-sm-4 col-xs-12">
-								<img class="lazy" data-original="<?php echo $thumb[0];?>" src="<?php echo $thumb[0];?>" alt="<?php echo the_title();?>"/>
+								<div class="wrap">
+									<img class="lazy" data-original="<?php echo $thumb[0];?>" src="<?php echo $thumb[0];?>" alt="<?php echo the_title();?>"/>
+								</div>
 								<figcaption>
 									<div class="wrap">
 										<h2>
