@@ -45,7 +45,7 @@ $(document).ready(function(){
 
 	$(".lazy").lazyload({
 	    effect : "fadeIn",
-	    threshold : 200
+	    threshold : 500
 	});
 
 	backgroundResize();
