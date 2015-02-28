@@ -17,27 +17,28 @@ the_post(); ?>
 	<div class="container">
 		<div class="row">
 
-			<h1><?php echo the_title();?></h1>
+			<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+				
+				<h1><?php echo the_title();?></h1>
 
-			<div class="inner col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
-				
-				<?php if(get_field('intro')) : ?>
-					<header class="row">
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<h2 class="text-aligncenter"><?php echo the_field('intro');?></h2>
+				<div class="inner">
+					<?php if(get_field('intro')) : ?>
+						<header class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<h2 class="text-aligncenter"><?php echo the_field('intro');?></h2>
+							</div>
+						</header>
+					<?php endif;?>
+						
+					<div class="row">
+						<div class="contact-form col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<?php if( function_exists( 'ninja_forms_display_form' ) ){ ninja_forms_display_form( 1 ); } ?>
 						</div>
-					</header>
-				<?php endif;?>
-					
-				<div class="row">
-					<div class="contact-form col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<?php if( function_exists( 'ninja_forms_display_form' ) ){ ninja_forms_display_form( 1 ); } ?>
+						<div class="contact-info col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-12 col-xs-12">
+							<h3><?php echo the_field('information');?></h3>
+						</div>
 					</div>
-					<div class="contact-info col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-12 col-xs-12">
-						<h3><?php echo the_field('information');?></h3>
-					</div>
-				</div>
-				
+				</div>	
 			</div>	
 
 		</div>	

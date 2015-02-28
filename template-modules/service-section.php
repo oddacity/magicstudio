@@ -5,7 +5,7 @@
 	$count = 1;
 ?> 
 
-<div id="<?php echo $slug;?>" class="service-section col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+<div id="<?php echo $slug;?>" class="service-section col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 	<h1><?php echo $name;?></h1>
 	<h3 class="callout"><?php echo the_field('rates',$term);?></h3>
 	
@@ -101,8 +101,6 @@
 			endforeach; 
 		?>
 	</div>
-
-	
 
 </div>
 
